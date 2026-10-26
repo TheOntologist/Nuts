@@ -45,7 +45,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#ObjectProperty1 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has Role</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has role</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -53,7 +53,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#ObjectProperty2 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/nuts#ObjectProperty2">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">developsFrom</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">develops from</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -78,6 +78,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#ObjectProperty6 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contains</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -115,7 +123,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#Class10 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class10">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Flower part</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Flower Part</rdfs:label>
     </owl:Class>
     
 
@@ -161,6 +169,10 @@
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class2"/>
+                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
@@ -222,10 +234,6 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
                             <owl:Class>
@@ -258,19 +266,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class15">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Acorn</rdfs:label>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
@@ -292,8 +287,25 @@
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -337,19 +349,6 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class18">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horse chesnut</rdfs:label>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
@@ -367,8 +366,33 @@
                             </owl:Class>
                         </owl:someValuesFrom>
                     </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class41"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -396,7 +420,8 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#Class2 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class2">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Culinary role</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Culinary Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
     </owl:Class>
     
 
@@ -423,7 +448,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#Class21 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class21">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Woody pericarp</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Woody Pericarp</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class23"/>
     </owl:Class>
     
@@ -432,7 +457,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#Class22 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class22">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fruit Quality</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fruit Property</rdfs:label>
     </owl:Class>
     
 
@@ -442,6 +467,24 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class23">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pericarp</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class51"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class50"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class49"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -458,7 +501,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class25">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">syncarpous gynoecium</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class10"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class46"/>
     </owl:Class>
     
 
@@ -489,18 +532,18 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -516,18 +559,22 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -543,14 +590,22 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class2"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -620,13 +675,21 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class32">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beech Nut</rdfs:label>
         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
@@ -643,12 +706,6 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -667,6 +724,12 @@
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kola Nut</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -676,10 +739,6 @@
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
@@ -696,12 +755,6 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -712,26 +765,9 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class34">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Breadnut</rdfs:label>
         <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
@@ -748,6 +784,25 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -759,12 +814,6 @@
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Candlenut</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -774,10 +823,6 @@
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
@@ -794,6 +839,18 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -804,6 +861,27 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class36">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Guinea Peanut</rdfs:label>
         <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty2"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class25"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
@@ -816,31 +894,6 @@
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class21"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty2"/>
-                                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class25"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -850,13 +903,16 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class37">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Johnston River Almond</rdfs:label>
         <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
@@ -873,13 +929,6 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -908,18 +957,22 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -934,11 +987,181 @@
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Culinary nut</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class3"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class54"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class40 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class40">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edible</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class41 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class41">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inedible</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class42 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class42">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pyrena</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class49"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class53"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class43 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class43">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fleshy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+        <rdfs:comment>as in fleshy mesocarp like a peach</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class44 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class44">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whorl</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class10"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class45 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class45">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Androecium</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class44"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class46 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class46">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gynoecium</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class44"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class47 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class47">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corolla</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class44"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class48 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class48">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Calyx</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class44"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class49 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class49">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Endocarp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class5 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class5">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nut Role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class50 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class50">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mesocarp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class51 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class51">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exocarp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class52 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class52">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Receptacle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class10"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class53 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class53">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hardened</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class54 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class54">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fruit Stone</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -947,11 +1170,47 @@
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/nuts#Class5 -->
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class55 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class5">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nut role</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class2"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class55">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whorl Part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class10"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class56 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class56">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gynoecium Part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class55"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class57 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class57">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Androecium Part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class55"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class58 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class58">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carpel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class56"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class59 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class59">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pistil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class56"/>
     </owl:Class>
     
 
@@ -963,18 +1222,138 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class60 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class60">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ovary</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class56"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class61 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class61">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seed Part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class62 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class62">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Testa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class61"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class63 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class63">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Embryo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class61"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class64 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class64">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Swollen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+        <rdfs:comment>as in receptacle - like for a strawberry</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class65 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class65">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peach Stone</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
                         <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class41"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class66 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class66">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Apricot Stone</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class31"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class41"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -990,14 +1369,18 @@
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class1"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class24"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class21"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class42"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class40"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1015,10 +1398,6 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class16"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty1"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class5"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                         <owl:someValuesFrom>
                             <owl:Class>
@@ -1035,6 +1414,19 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1043,7 +1435,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class9">
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OvaryWall</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class10"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class56"/>
     </owl:Class>
     
 
