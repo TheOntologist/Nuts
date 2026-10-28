@@ -343,6 +343,22 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/nuts#Class23"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty2"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class9"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/nuts#ObjectProperty4"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1513,6 +1529,51 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class72 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class72">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simple Ovary</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class60"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class73 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class73">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compound Ovary</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class60"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class74 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class74">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class22"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class75 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class75">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pulp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/nuts#Class76 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class76">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class24"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/nuts#Class8 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class8">
@@ -1564,7 +1625,7 @@
     <!-- http://www.semanticweb.org/ontologies/nuts#Class9 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/nuts#Class9">
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OvaryWall</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ovary Wall</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/nuts#Class56"/>
     </owl:Class>
     
